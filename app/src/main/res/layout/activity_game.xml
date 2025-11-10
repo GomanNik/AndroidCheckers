@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/game_background"
+    tools:context=".GameActivity">
+
+    <!-- Верхняя панель с кнопками -->
+    <LinearLayout
+        android:id="@+id/layout_game_top_buttons"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginStart="@dimen/main_toolbar_margin"
+        android:layout_marginEnd="@dimen/main_toolbar_margin"
+        android:layout_marginTop="@dimen/main_toolbar_margin"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <Button
+            android:id="@+id/btn_game_home"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/menu_exit" />
+
+        <Button
+            android:id="@+id/btn_game_restart"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/game_restart" />
+
+        <Button
+            android:id="@+id/btn_game_undo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/game_undo" />
+
+        <Button
+            android:id="@+id/btn_game_sound"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/game_sound" />
+    </LinearLayout>
+
+    <!-- Счёт (0 : 0 + подпись) -->
+    <LinearLayout
+        android:id="@+id/layout_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        app:layout_constraintTop_toBottomOf="@id/layout_game_top_buttons"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/game_score_margin_top">
+
+        <TextView
+            android:id="@+id/tv_score_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0 : 0"
+            android:textSize="24sp"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:id="@+id/tv_score_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/game_score_label"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+
+    <!-- Уровень -->
+    <TextView
+        android:id="@+id/tv_game_level"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/game_level_label"
+        android:textColor="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@id/layout_score"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/game_level_margin_top" />
+
+    <!-- Чей ход -->
+    <TextView
+        android:id="@+id/tv_game_turn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/game_turn_white"
+        android:textColor="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@id/tv_game_level"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/game_turn_margin_top" />
+
+    <!-- Игровое поле 8×8 -->
+    <ru.goman.checkers.CheckersBoardView
+        android:id="@+id/board_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/game_board_margin_horizontal"
+        android:layout_marginEnd="@dimen/game_board_margin_horizontal"
+        android:layout_marginTop="@dimen/game_board_margin_vertical"
+        android:layout_marginBottom="@dimen/game_board_margin_vertical"
+        android:background="@color/board_background"
+        app:layout_constraintTop_toBottomOf="@id/tv_game_turn"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        tools:ignore="MissingConstraints" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

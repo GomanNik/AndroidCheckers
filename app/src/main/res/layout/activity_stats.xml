@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StatsActivity">
+
+    <!-- Кнопка Домой (слева сверху) -->
+    <Button
+        android:id="@+id/btn_stats_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/menu_exit"
+        android:layout_marginStart="@dimen/main_toolbar_margin"
+        android:layout_marginTop="@dimen/main_toolbar_margin"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Кнопка Поделиться (справа сверху) -->
+    <Button
+        android:id="@+id/btn_stats_share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/menu_share"
+        android:layout_marginEnd="@dimen/main_toolbar_margin"
+        android:layout_marginTop="@dimen/main_toolbar_margin"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Заголовок "Статистика" -->
+    <TextView
+        android:id="@+id/tv_stats_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/menu_stats"
+        android:textSize="@dimen/main_title_text_size"
+        android:textStyle="bold"
+        android:layout_marginTop="@dimen/main_title_margin_top"
+        app:layout_constraintTop_toBottomOf="@id/btn_stats_home"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Прокручиваемая область со статистикой -->
+    <ScrollView
+        android:id="@+id/stats_scroll"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:layout_marginStart="@dimen/main_toolbar_margin"
+        android:layout_marginEnd="@dimen/main_toolbar_margin"
+        android:layout_marginTop="@dimen/main_first_button_margin_top"
+        app:layout_constraintTop_toBottomOf="@id/tv_stats_title"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:id="@+id/stats_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Лёгкий уровень -->
+            <TextView
+                android:id="@+id/tv_easy_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/stats_easy_title"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/main_buttons_spacing" />
+
+            <TextView
+                android:id="@+id/tv_easy_played"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/stats_played_zero" />
+
+            <TextView
+                android:id="@+id/tv_easy_won"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/stats_won_zero" />
+
+            <TextView
+                android:id="@+id/tv_easy_lost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/stats_lost_zero" />
+
+            <!-- Средний уровень -->
+            <TextView
+                android:id="@+id/tv_medium_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/stats_medium_title"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/main_buttons_spacing" />
+
+            <TextView
+                android:id="@+id/tv_medium_played"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/stats_played_zero" />
+
+            <TextView
+                android:id="@+id/tv_medium_won"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/stats_won_zero" />
+
+            <TextView
+                android:id="@+id/tv_medium_lost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/stats_lost_zero" />
+
+            <!-- Сложный уровень -->
+            <TextView
+                android:id="@+id/tv_hard_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/stats_hard_title"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/main_buttons_spacing" />
+
+            <TextView
+                android:id="@+id/tv_hard_played"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/stats_played_zero" />
+
+            <TextView
+                android:id="@+id/tv_hard_won"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/stats_won_zero" />
+
+            <TextView
+                android:id="@+id/tv_hard_lost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/stats_lost_zero" />
+
+            <!-- Эксперт уровень -->
+            <TextView
+                android:id="@+id/tv_expert_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/stats_expert_title"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/main_buttons_spacing" />
+
+            <TextView
+                android:id="@+id/tv_expert_played"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/stats_played_zero" />
+
+            <TextView
+                android:id="@+id/tv_expert_won"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/stats_won_zero" />
+
+            <TextView
+                android:id="@+id/tv_expert_lost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/stats_lost_zero" />
+
+            <!-- Гроссмейстер уровень -->
+            <TextView
+                android:id="@+id/tv_grandmaster_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/stats_grandmaster_title"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/main_buttons_spacing" />
+
+            <TextView
+                android:id="@+id/tv_grandmaster_played"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/stats_played_zero" />
+
+            <TextView
+                android:id="@+id/tv_grandmaster_won"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/stats_won_zero" />
+
+            <TextView
+                android:id="@+id/tv_grandmaster_lost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/stats_lost_zero" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

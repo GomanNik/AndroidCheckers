@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <title>Правила шашек</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        /* Общий фон и базовая типографика */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                         "Helvetica Neue", Arial, sans-serif;
+            background: #101018;
+            color: #f5f5f5;
+        }
+
+        .page {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 16px 18px 32px;
+        }
+
+        h1, h2, h3 {
+            margin: 0;
+            font-weight: 600;
+        }
+
+        h1 {
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        h2 {
+            font-size: 18px;
+            margin-top: 20px;
+            margin-bottom: 8px;
+        }
+
+        h3 {
+            font-size: 16px;
+            margin-top: 14px;
+            margin-bottom: 4px;
+        }
+
+        p {
+            margin: 4px 0 8px;
+            line-height: 1.5;
+            font-size: 14px;
+        }
+
+        ul {
+            margin: 4px 0 10px;
+            padding-left: 18px;
+            font-size: 14px;
+        }
+
+        li {
+            margin-bottom: 4px;
+        }
+
+        /* Карточка с содержимым */
+        .card {
+            background: #181824;
+            border-radius: 14px;
+            padding: 14px 16px;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.55);
+            margin-bottom: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        /* Верхний блок заголовка */
+        .header {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 13px;
+            color: #b0b0c8;
+        }
+
+        /* Чип с режимом / подсказкой */
+        .tag {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 999px;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 6px;
+            background: linear-gradient(135deg, #7e57ff, #c792ff);
+            color: #fff;
+        }
+
+        /* Список правил в две колонки на больших экранах */
+        .cols {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr);
+            gap: 10px;
+        }
+
+        @media (min-width: 640px) {
+            .cols {
+                grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            }
+        }
+
+        /* Маленькая табличка */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 6px 0 10px;
+            font-size: 13px;
+        }
+
+        th, td {
+            padding: 6px 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        th {
+            text-align: left;
+            color: #c0c0d8;
+            font-weight: 500;
+        }
+
+        .note {
+            font-size: 12px;
+            color: #aaaacc;
+        }
+
+        .accent {
+            color: #ffcc66;
+            font-weight: 500;
+        }
+
+        .bullet-title {
+            font-weight: 500;
+        }
+
+        .divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, #444466, transparent);
+            margin: 16px 0;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <div class="header">
+        <div class="tag">Справка</div>
+        <h1>Правила игры в шашки</h1>
+        <div class="subtitle">
+            Краткое изложение классических правил. В игре используется доска 8×8 и ход по диагонали.
+        </div>
+    </div>
+
+    <!-- Цель и начальная позиция -->
+    <div class="card">
+        <h2>Цель игры</h2>
+        <p>
+            Выиграть партию, уничтожив все шашки соперника
+            либо лишив его возможности сделать ход.
+        </p>
+
+        <div class="divider"></div>
+
+        <h2>Начальная позиция</h2>
+        <ul>
+            <li>Игра ведётся на доске <span class="accent">8×8</span> по тёмным клеткам.</li>
+            <li>Каждый игрок располагает по 12 шашек.</li>
+            <li>Шашки ставятся на тёмные клетки первых трёх рядов со своей стороны.</li>
+            <li>Игрок с белыми шашками всегда ходит первым.</li>
+        </ul>
+    </div>
+
+    <!-- Ход шашки / дамки и взятие -->
+    <div class="card">
+        <div class="cols">
+            <div>
+                <h2>Ход простой шашки</h2>
+                <ul>
+                    <li>Простая шашка ходит на одну клетку по диагонали вперёд.</li>
+                    <li>Ход на занятую клетку запрещён.</li>
+                    <li>Шашка не может ходить назад, пока не станет дамкой.</li>
+                </ul>
+
+                <h2>Дамка</h2>
+                <ul>
+                    <li>Простая шашка, достигшая последней горизонтали соперника, превращается в <span class="accent">дамку</span>.</li>
+                    <li>Дамка ходит по диагонали вперёд и назад на любое число свободных клеток.</li>
+                    <li>Взятие дамкой также осуществляется по диагонали с прыжком через шашку соперника.</li>
+                </ul>
+            </div>
+
+            <div>
+                <h2>Взятие шашек</h2>
+                <p class="bullet-title">Общие правила взятия:</p>
+                <ul>
+                    <li>Взятие выполняется прыжком через шашку соперника на свободную клетку за ней.</li>
+                    <li>Перепрыгиваемая шашка снимается с доски.</li>
+                    <li>Если после взятия возможен следующий удар той же шашкой (или дамкой),
+                        игрок обязан продолжить цепочку взятий.</li>
+                </ul>
+
+                <p class="bullet-title">Правило «бить обязательно»:</p>
+                <ul>
+                    <li>Если у игрока есть возможность взять хотя бы одну шашку, ход без взятия запрещён.</li>
+                    <li>Если возможны несколько вариантов взятия, игрок выбирает любой из них.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Окончание партии -->
+    <div class="card">
+        <h2>Окончание партии</h2>
+        <ul>
+            <li><span class="bullet-title">Победа</span> — у соперника не осталось шашек или он не может сделать ни одного хода.</li>
+            <li><span class="bullet-title">Поражение</span> — вы потеряли все шашки или не имеете ходов.</li>
+            <li><span class="bullet-title">Ничья</span> возможна:
+                <ul>
+                    <li>по взаимному согласию игроков;</li>
+                    <li>при длительном отсутствии взятий и продвижения;</li>
+                    <li>при повторении одной и той же позиции несколько раз.</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Настройки игры в приложении -->
+    <div class="card">
+        <h2>Особенности игры в приложении</h2>
+
+        <h3>Режимы и параметры</h3>
+        <ul>
+            <li><span class="bullet-title">Бить обязательно</span> —
+                если параметр включён, вы обязаны делать взятие, когда оно возможно.
+            </li>
+            <li><span class="bullet-title">Подсказка хода</span> —
+                при выборе фишки возможные ходы подсвечиваются на доске.
+            </li>
+            <li><span class="bullet-title">Цвет фона</span> —
+                переключение между светлой и тёмной темой игрового поля и меню.
+            </li>
+            <li><span class="bullet-title">Играть за</span> —
+                можно выбрать игру за белых или за чёрных.</li>
+            <li><span class="bullet-title">Выбор языка</span> —
+                переключение языка интерфейса (например, русский / английский).</li>
+        </ul>
+
+        <div class="divider"></div>
+
+        <h3>Уровни сложности</h3>
+        <table>
+            <tr>
+                <th>Уровень</th>
+                <th>Описание</th>
+            </tr>
+            <tr>
+                <td>Лёгкий</td>
+                <td>Ходы компьютера простые, подходит для знакомства с игрой.</td>
+            </tr>
+            <tr>
+                <td>Средний</td>
+                <td>Более осторожная игра, компьютер учитывает базовые комбинации.</td>
+            </tr>
+            <tr>
+                <td>Сложный</td>
+                <td>Компьютер просматривает больше вариантов и чаще использует жертвы.</td>
+            </tr>
+            <tr>
+                <td>Эксперт</td>
+                <td>Требует аккуратной игры, ошибки быстро приводят к поражению.</td>
+            </tr>
+            <tr>
+                <td>Гроссмейстер</td>
+                <td>Максимальный уровень для опытных игроков.</td>
+            </tr>
+        </table>
+
+        <p class="note">
+            Примечание: точное поведение уровней сложности зависит от реализованного алгоритма ИИ
+            и может отличаться от классических описаний.
+        </p>
+    </div>
+
+    <!-- Маленький футер -->
+    <p class="note">
+        Эти правила даны для быстрого напоминания. В спорных ситуациях ориентируйтесь на официальные
+        правила русских шашек или договорённость игроков перед началом партии.
+    </p>
+
+</div>
+</body>
+</html>

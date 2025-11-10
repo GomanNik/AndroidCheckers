@@ -1,3 +1,70 @@
 <resources>
-    <string name="app_name">Checkers</string>
+    <string name="app_name">Шашки</string>
+
+    <!-- Главное меню -->
+    <string name="menu_title">Шашки</string>
+    <string name="menu_exit">Выход</string>
+    <string name="menu_share">Поделиться</string>
+    <string name="menu_play">Играть</string>
+    <string name="menu_rules">Правила</string>
+    <string name="menu_two_players">Игра вдвоём</string>
+    <string name="menu_stats">Статистика</string>
+    <string name="menu_settings">Настройки</string>
+
+    <!-- Выбор уровня -->
+    <string name="level_select_title">Выбор уровня</string>
+    <string name="level_easy">Лёгкий</string>
+    <string name="level_medium">Средний</string>
+    <string name="level_hard">Сложный</string>
+    <string name="level_expert">Эксперт</string>
+    <string name="level_grandmaster">Гроссмейстер</string>
+
+    <!-- Статистика -->
+    <string name="stats_easy_title">Лёгкий уровень:</string>
+    <string name="stats_medium_title">Средний уровень:</string>
+    <string name="stats_hard_title">Сложный уровень:</string>
+    <string name="stats_expert_title">Эксперт уровень:</string>
+    <string name="stats_grandmaster_title">Гроссмейстер уровень:</string>
+
+    <string name="stats_played_zero">Сыграно: 0</string>
+    <string name="stats_won_zero">Побед: 0</string>
+    <string name="stats_lost_zero">Поражений: 0</string>
+
+    <!-- Настройки -->
+    <string name="settings_title">Настройки</string>
+
+    <string name="settings_play_as">Играть за</string>
+    <string name="settings_play_white">Белые</string>
+    <string name="settings_play_black">Чёрные</string>
+
+    <string name="settings_must_capture">Бить обязательно</string>
+    <string name="settings_yes">Да</string>
+    <string name="settings_no">Нет</string>
+
+    <string name="settings_giveaway">Игра в поддавки</string> <!-- на будущее, можно не использовать -->
+    <string name="settings_move_hint">Подсказка хода</string>
+
+    <string name="settings_background_color">Цвет фона</string>
+    <string name="settings_bg_light">Светлый</string>
+    <string name="settings_bg_dark">Тёмный</string>
+
+    <string name="settings_language">Выбор языка</string>
+    <string name="settings_lang_russian">Русский</string>
+    <string name="settings_lang_english">English</string>
+
+    <!-- Правила -->
+    <string name="rules_title">Правила игры</string>
+
+    <!-- Игровой экран -->
+    <string name="game_score_label">Счёт</string>
+    <string name="game_restart">Заново</string>
+    <string name="game_undo">Отменить ход</string>
+    <string name="game_sound">Звук</string>
+
+    <string name="game_turn_white">Ход: Белые</string>
+    <string name="game_turn_black">Ход: Чёрные</string>
+
+    <string name="game_level_label">Уровень:</string>
+    <string name="game_level_format">Уровень: %1$s</string>
+
 </resources>

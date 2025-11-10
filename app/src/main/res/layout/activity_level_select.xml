@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LevelSelectActivity">
+
+    <!-- Заголовок "Выбор уровня" -->
+    <TextView
+        android:id="@+id/tv_level_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/level_select_title"
+        android:textSize="@dimen/main_title_text_size"
+        android:textStyle="bold"
+        android:layout_marginTop="@dimen/main_title_margin_top"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Лёгкий -->
+    <Button
+        android:id="@+id/btn_level_easy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/level_easy"
+        android:layout_marginTop="@dimen/level_first_button_margin_top"
+        app:layout_constraintTop_toBottomOf="@id/tv_level_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+    <!-- Средний -->
+    <Button
+        android:id="@+id/btn_level_medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/level_medium"
+        android:layout_marginTop="@dimen/main_buttons_spacing"
+        app:layout_constraintTop_toBottomOf="@id/btn_level_easy"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Сложный -->
+    <Button
+        android:id="@+id/btn_level_hard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/level_hard"
+        android:layout_marginTop="@dimen/main_buttons_spacing"
+        app:layout_constraintTop_toBottomOf="@id/btn_level_medium"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Эксперт -->
+    <Button
+        android:id="@+id/btn_level_expert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/level_expert"
+        android:layout_marginTop="@dimen/main_buttons_spacing"
+        app:layout_constraintTop_toBottomOf="@id/btn_level_hard"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Гроссмейстер -->
+    <Button
+        android:id="@+id/btn_level_grandmaster"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/level_grandmaster"
+        android:layout_marginTop="@dimen/main_buttons_spacing"
+        app:layout_constraintTop_toBottomOf="@id/btn_level_expert"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

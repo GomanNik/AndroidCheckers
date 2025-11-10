@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SettingsActivity">
+
+    <!-- Домой -->
+    <Button
+        android:id="@+id/btn_settings_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/menu_exit"
+        android:layout_marginStart="@dimen/main_toolbar_margin"
+        android:layout_marginTop="@dimen/main_toolbar_margin"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Поделиться -->
+    <Button
+        android:id="@+id/btn_settings_share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/menu_share"
+        android:layout_marginEnd="@dimen/main_toolbar_margin"
+        android:layout_marginTop="@dimen/main_toolbar_margin"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Заголовок -->
+    <TextView
+        android:id="@+id/tv_settings_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/settings_title"
+        android:textSize="@dimen/main_title_text_size"
+        android:textStyle="bold"
+        android:layout_marginTop="@dimen/main_title_margin_top"
+        app:layout_constraintTop_toBottomOf="@id/btn_settings_home"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Прокручиваемое содержимое -->
+    <ScrollView
+        android:id="@+id/settings_scroll"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:layout_marginStart="@dimen/main_toolbar_margin"
+        android:layout_marginEnd="@dimen/main_toolbar_margin"
+        android:layout_marginTop="@dimen/main_first_button_margin_top"
+        app:layout_constraintTop_toBottomOf="@id/tv_settings_title"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Играть за -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/settings_play_as"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/settings_section_margin_top" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/settings_option_margin_vertical">
+
+                <Button
+                    android:id="@+id/btn_play_white"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/settings_play_white" />
+
+                <Button
+                    android:id="@+id/btn_play_black"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/settings_play_black" />
+            </LinearLayout>
+
+            <!-- Бить обязательно -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/settings_must_capture"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/settings_section_margin_top" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/settings_option_margin_vertical">
+
+                <Button
+                    android:id="@+id/btn_must_capture_yes"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/settings_yes" />
+
+                <Button
+                    android:id="@+id/btn_must_capture_no"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/settings_no" />
+            </LinearLayout>
+
+            <!-- Подсказка хода -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/settings_move_hint"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/settings_section_margin_top" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/settings_option_margin_vertical">
+
+                <Button
+                    android:id="@+id/btn_hint_yes"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/settings_yes" />
+
+                <Button
+                    android:id="@+id/btn_hint_no"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/settings_no" />
+            </LinearLayout>
+
+            <!-- Цвет фона -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/settings_background_color"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/settings_section_margin_top" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/settings_option_margin_vertical">
+
+                <Button
+                    android:id="@+id/btn_bg_light"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/settings_bg_light" />
+
+                <Button
+                    android:id="@+id/btn_bg_dark"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/settings_bg_dark" />
+            </LinearLayout>
+
+            <!-- Язык -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/settings_language"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/settings_section_margin_top" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/settings_option_margin_vertical"
+                android:layout_marginBottom="@dimen/settings_section_margin_top">
+
+                <Button
+                    android:id="@+id/btn_lang_ru"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/settings_lang_russian" />
+
+                <Button
+                    android:id="@+id/btn_lang_en"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/settings_lang_english" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
