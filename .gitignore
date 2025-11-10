@@ -1,0 +1,29 @@
+# Gradle
+.gradle/
+build/
+**/build/
+
+# Local configuration
+local.properties
+
+# IntelliJ / Android Studio
+*.iml
+.idea/
+!.idea/codeStyles
+
+# NDK / CMake
+.externalNativeBuild/
+.cxx/
+
+# Logs and misc
+*.log
+*.hprof
+.DS_Store
+
+# APK / bundles
+*.apk
+*.ap_
+*.aab
+
+# Captures
+captures/
