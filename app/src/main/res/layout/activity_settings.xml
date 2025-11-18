@@ -6,42 +6,32 @@
     android:layout_height="match_parent"
     tools:context=".SettingsActivity">
 
-    <!-- Домой -->
-    <Button
+    <!-- Домой (такая же круглая, как в игре), чуть ниже статус-бара -->
+    <ImageButton
         android:id="@+id/btn_settings_home"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/menu_exit"
+        style="@style/GameIconButton"
+        android:src="@drawable/ic_game_home"
+        android:contentDescription="@string/menu_exit"
         android:layout_marginStart="@dimen/main_toolbar_margin"
-        android:layout_marginTop="@dimen/main_toolbar_margin"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_marginTop="55dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Поделиться -->
-    <Button
-        android:id="@+id/btn_settings_share"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/menu_share"
-        android:layout_marginEnd="@dimen/main_toolbar_margin"
-        android:layout_marginTop="@dimen/main_toolbar_margin"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+    <!-- Заголовок "Настройки" в одной строке с иконкой -->
 
-    <!-- Заголовок -->
     <TextView
         android:id="@+id/tv_settings_title"
+        style="@style/Text.GameTurn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/settings_title"
-        android:textSize="@dimen/main_title_text_size"
-        android:textStyle="bold"
-        android:layout_marginTop="@dimen/main_title_margin_top"
-        app:layout_constraintTop_toBottomOf="@id/btn_settings_home"
+        android:layout_marginStart="0dp"
+        app:layout_constraintTop_toTopOf="@id/btn_settings_home"
+        app:layout_constraintBottom_toBottomOf="@id/btn_settings_home"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Прокручиваемое содержимое -->
+
     <ScrollView
         android:id="@+id/settings_scroll"
         android:layout_width="0dp"
@@ -49,8 +39,7 @@
         android:fillViewport="true"
         android:layout_marginStart="@dimen/main_toolbar_margin"
         android:layout_marginEnd="@dimen/main_toolbar_margin"
-        android:layout_marginTop="@dimen/main_first_button_margin_top"
-        app:layout_constraintTop_toBottomOf="@id/tv_settings_title"
+        app:layout_constraintTop_toBottomOf="@id/btn_settings_home"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -58,14 +47,17 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
             android:orientation="vertical">
 
             <!-- Играть за -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/settings_play_as"
+                style="@style/Text.GameInfoLabelSecondary"
                 android:textStyle="bold"
+                android:textSize="22sp"
+                android:text="@string/settings_play_as"
                 android:layout_marginTop="@dimen/settings_section_margin_top" />
 
             <LinearLayout
@@ -76,6 +68,7 @@
 
                 <Button
                     android:id="@+id/btn_play_white"
+                    style="@style/SettingsButton"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -83,6 +76,7 @@
 
                 <Button
                     android:id="@+id/btn_play_black"
+                    style="@style/SettingsButton"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -93,8 +87,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/settings_must_capture"
+                style="@style/Text.GameInfoLabelSecondary"
                 android:textStyle="bold"
+                android:textSize="22sp"
+                android:text="@string/settings_must_capture"
                 android:layout_marginTop="@dimen/settings_section_margin_top" />
 
             <LinearLayout
@@ -105,6 +101,7 @@
 
                 <Button
                     android:id="@+id/btn_must_capture_yes"
+                    style="@style/SettingsButton"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -112,6 +109,7 @@
 
                 <Button
                     android:id="@+id/btn_must_capture_no"
+                    style="@style/SettingsButton"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -122,8 +120,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/settings_move_hint"
+                style="@style/Text.GameInfoLabelSecondary"
                 android:textStyle="bold"
+                android:textSize="22sp"
+                android:text="@string/settings_move_hint"
                 android:layout_marginTop="@dimen/settings_section_margin_top" />
 
             <LinearLayout
@@ -134,6 +134,7 @@
 
                 <Button
                     android:id="@+id/btn_hint_yes"
+                    style="@style/SettingsButton"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -141,47 +142,21 @@
 
                 <Button
                     android:id="@+id/btn_hint_no"
+                    style="@style/SettingsButton"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/settings_no" />
             </LinearLayout>
 
-            <!-- Цвет фона -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/settings_background_color"
-                android:textStyle="bold"
-                android:layout_marginTop="@dimen/settings_section_margin_top" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="@dimen/settings_option_margin_vertical">
-
-                <Button
-                    android:id="@+id/btn_bg_light"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/settings_bg_light" />
-
-                <Button
-                    android:id="@+id/btn_bg_dark"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/settings_bg_dark" />
-            </LinearLayout>
-
             <!-- Язык -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/settings_language"
+                style="@style/Text.GameInfoLabelSecondary"
                 android:textStyle="bold"
+                android:textSize="22sp"
+                android:text="@string/settings_language"
                 android:layout_marginTop="@dimen/settings_section_margin_top" />
 
             <LinearLayout
@@ -193,6 +168,7 @@
 
                 <Button
                     android:id="@+id/btn_lang_ru"
+                    style="@style/SettingsButton"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -200,6 +176,7 @@
 
                 <Button
                     android:id="@+id/btn_lang_en"
+                    style="@style/SettingsButton"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"

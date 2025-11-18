@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingTop="28dp"
+    android:paddingBottom="28dp"
+    android:paddingStart="24dp"
+    android:paddingEnd="24dp"
+    android:background="@drawable/bg_dialog_round">
+
+    <TextView
+        android:id="@+id/tv_exit_question"
+        style="@style/Text.GameInfoLabelSecondary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/exit_question"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="20dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp">
+
+        <Button
+            android:id="@+id/btn_exit_no"
+            style="@style/SettingsButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="6dp"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:textSize="14sp"
+            android:text="@string/exit_no"
+            android:maxLines="2" />
+
+        <Button
+            android:id="@+id/btn_exit_yes"
+            style="@style/SettingsButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="6dp"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:textSize="14sp"
+            android:text="@string/exit_yes"
+            android:maxLines="2" />
+    </LinearLayout>
+
+</LinearLayout>

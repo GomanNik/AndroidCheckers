@@ -8,95 +8,95 @@
     tools:context=".MainActivity">
 
     <!-- Кнопка Выход (слева сверху) -->
-    <Button
+    <ImageButton
         android:id="@+id/btn_exit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/menu_exit"
+        style="@style/GameIconButton"
+        android:src="@drawable/exit"
+        android:contentDescription="@string/menu_exit"
         android:layout_marginStart="@dimen/main_toolbar_margin"
-        android:layout_marginTop="@dimen/main_toolbar_margin"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_marginTop="55dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <!-- ======== НАЧАЛО ВЕРТИКАЛЬНОЙ ЦЕПОЧКИ ======== -->
 
-    <!-- Кнопка Поделиться (справа сверху) -->
-    <Button
-        android:id="@+id/btn_share"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/menu_share"
-        android:layout_marginEnd="@dimen/main_toolbar_margin"
-        android:layout_marginTop="@dimen/main_toolbar_margin"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <!-- Заголовок "Шашки" -->
     <TextView
         android:id="@+id/tv_title"
+        style="@style/Text.MainTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/menu_title"
-        android:textSize="@dimen/main_title_text_size"
-        android:textStyle="bold"
-        android:layout_marginTop="@dimen/main_title_margin_top"
-        app:layout_constraintTop_toBottomOf="@id/btn_exit"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/btn_exit" />
 
-    <!-- Кнопка "Играть" — якорь для всего столбика кнопок -->
     <Button
         android:id="@+id/btn_play"
+        style="@style/MainButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:drawableEnd="@drawable/ic_main_play"
         android:text="@string/menu_play"
-        android:layout_marginTop="@dimen/main_first_button_margin_top"
-        app:layout_constraintTop_toBottomOf="@id/tv_title"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0.2"
+        app:layout_constraintBottom_toTopOf="@id/btn_rules"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/tv_title"
+        app:layout_constraintVertical_chainStyle="packed" />
 
-    <!-- Кнопка "Правила" -->
     <Button
         android:id="@+id/btn_rules"
+        style="@style/MainButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/menu_rules"
+        android:drawableEnd="@drawable/ic_main_rules"
         android:layout_marginTop="@dimen/main_buttons_spacing"
         app:layout_constraintTop_toBottomOf="@id/btn_play"
+        app:layout_constraintBottom_toTopOf="@id/btn_two_players"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Кнопка "Игра вдвоём" -->
+    <!-- Игра вдвоём -->
     <Button
         android:id="@+id/btn_two_players"
+        style="@style/MainButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/menu_two_players"
+        android:drawableEnd="@drawable/ic_main_two_players"
         android:layout_marginTop="@dimen/main_buttons_spacing"
         app:layout_constraintTop_toBottomOf="@id/btn_rules"
+        app:layout_constraintBottom_toTopOf="@id/btn_stats"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Кнопка "Статистика" -->
+    <!-- Статистика -->
     <Button
         android:id="@+id/btn_stats"
+        style="@style/MainButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/menu_stats"
+        android:drawableEnd="@drawable/ic_main_stats"
         android:layout_marginTop="@dimen/main_buttons_spacing"
         app:layout_constraintTop_toBottomOf="@id/btn_two_players"
+        app:layout_constraintBottom_toTopOf="@id/btn_settings"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Кнопка "Настройки" -->
+    <!-- Настройки -->
     <Button
         android:id="@+id/btn_settings"
+        style="@style/MainButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/menu_settings"
+        android:drawableEnd="@drawable/ic_main_settings"
         android:layout_marginTop="@dimen/main_buttons_spacing"
         app:layout_constraintTop_toBottomOf="@id/btn_stats"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- ======== КОНЕЦ ЦЕПОЧКИ ======== -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
