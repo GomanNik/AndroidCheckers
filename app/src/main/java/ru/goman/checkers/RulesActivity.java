@@ -1,39 +1,36 @@
 package ru.goman.checkers;
 
-import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.Button;
+import android.widget.ImageButton;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-public class RulesActivity extends AppCompatActivity {
+public class RulesActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rules);
 
-        Button btnHome = findViewById(R.id.btn_rules_home);
-        Button btnShare = findViewById(R.id.btn_rules_share);
-        WebView webView = findViewById(R.id.web_rules);
+        ImageButton btnHome = findViewById(R.id.btn_rules_home);
+        WebView webView     = findViewById(R.id.web_rules);
 
-        // Кнопка "Выход" = назад
-        btnHome.setOnClickListener(v -> finish());
+        // Отключаем системный звук, чтобы не было дубля с кастомным
+        btnHome.setSoundEffectsEnabled(false);
 
-        // Поделиться — просто линкуем текст
-        btnShare.setOnClickListener(v -> {
-            String text = "Правила игры в шашки (офлайн в приложении «Шашки»).";
-            Intent sendIntent = new Intent(Intent.ACTION_SEND);
-            sendIntent.setType("text/plain");
-            sendIntent.putExtra(Intent.EXTRA_TEXT, text);
-            startActivity(Intent.createChooser(sendIntent, "Поделиться правилами"));
-        });
+        // Кнопка "Выход" = назад в MainActivity
+        btnHome.setOnClickListener(withClickSound(v -> finish()));
 
-        // Настройка WebView и загрузка локального HTML
+        // Настройка WebView и загрузка локального HTML с правилами
         webView.setWebViewClient(new WebViewClient());
-        webView.getSettings().setJavaScriptEnabled(false); // нам JS не нужен
-        webView.loadUrl("file:///android_asset/rules_ru.html");
+        webView.getSettings().setJavaScriptEnabled(false); // JS не нужен
+
+        SharedPreferences prefs =
+                getSharedPreferences("checkers_settings", MODE_PRIVATE);
+        String lang = prefs.getString("language", "ru");
+
+        String file = lang.equals("en") ? "rules_en.html" : "rules_ru.html";
+        webView.loadUrl("file:///android_asset/" + file);
     }
 }
