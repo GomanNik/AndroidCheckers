@@ -92,4 +92,7 @@
     <string name="game_must_capture_hint">You must capture with a piece that can capture</string>
     <string name="game_no_undo_moves">No move to undo</string>
 
+    <string name="game_sound_on">Sound on</string>
+    <string name="game_sound_off">Sound off</string>
+
 </resources>

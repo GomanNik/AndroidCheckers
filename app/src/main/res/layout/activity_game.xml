@@ -65,7 +65,7 @@
             <ImageButton
                 android:id="@+id/btn_game_sound"
                 style="@style/GameIconButton"
-                android:src="@drawable/ic_game_sound_on"
+                android:src="@drawable/ic_sound_on"
                 android:contentDescription="@string/game_sound" />
         </LinearLayout>
 

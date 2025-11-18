@@ -2,6 +2,7 @@ package ru.goman.checkers.ui;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -28,6 +29,8 @@ import ru.goman.checkers.model.Player;
 /**
  * Экран игры в русские шашки.
  * Вся логика в GameLogic/BoardState, здесь только UI + режимы.
+ * Фоновая музыка: res/raw/game_bg_music.mp3  -> R.raw.game_bg_music
+ * Иконки звука:   res/drawable/ic_sound_on.xml  / ic_sound_off.xml
  */
 public class GameActivity extends BaseActivity {
 
@@ -45,12 +48,13 @@ public class GameActivity extends BaseActivity {
     private static final String KEY_LOSSES_PREFIX = "losses_level_";
 
     // SharedPreferences (настройки)
-    private static final String PREFS_SETTINGS   = "checkers_settings";
-    private static final String KEY_HUMAN_COLOR  = "human_color_vs_ai";   // "WHITE" / "BLACK"
-    private static final String COLOR_WHITE      = "WHITE";
-    private static final String COLOR_BLACK      = "BLACK";
-    private static final String KEY_MOVE_HINT    = "move_hint";
-    private static final String KEY_MUST_CAPTURE = "must_capture";
+    private static final String PREFS_SETTINGS    = "checkers_settings";
+    private static final String KEY_HUMAN_COLOR   = "human_color_vs_ai";   // "WHITE" / "BLACK"
+    private static final String COLOR_WHITE       = "WHITE";
+    private static final String COLOR_BLACK       = "BLACK";
+    private static final String KEY_MOVE_HINT     = "move_hint";
+    private static final String KEY_MUST_CAPTURE  = "must_capture";
+    private static final String KEY_SOUND_ENABLED = "sound_enabled_game";
 
     // Жёсткая логика цветов: человек = WHITE, ИИ = BLACK
     private static final Player HUMAN_LOGICAL_COLOR = Player.WHITE;
@@ -69,6 +73,7 @@ public class GameActivity extends BaseActivity {
     // Настройки
     private boolean moveHintEnabled        = true;
     private boolean mustCaptureRuleEnabled = true;
+    private boolean soundEnabled           = true;
 
     // История состояний и ходов для Undo (по одному ходу)
     /** Снимки состояния И ДО хода. На каждый ход ровно один снапшот. */
@@ -104,6 +109,10 @@ public class GameActivity extends BaseActivity {
     private TextView          tvTurn;
     private CheckersBoardView boardView;
     private ImageButton       btnUndo;
+    private ImageButton       btnSound;
+
+    // Фоновая музыка
+    private MediaPlayer bgMusicPlayer;
 
     private boolean isFirstAIMove = true;
     private boolean isUndoInProgress = false;
@@ -125,7 +134,7 @@ public class GameActivity extends BaseActivity {
         ImageButton btnHome    = findViewById(R.id.btn_game_home);
         ImageButton btnRestart = findViewById(R.id.btn_game_restart);
         btnUndo                = findViewById(R.id.btn_game_undo);
-        ImageButton btnSound   = findViewById(R.id.btn_game_sound);
+        btnSound               = findViewById(R.id.btn_game_sound);
 
         btnHome.setSoundEffectsEnabled(false);
         btnRestart.setSoundEffectsEnabled(false);
@@ -155,6 +164,7 @@ public class GameActivity extends BaseActivity {
         SharedPreferences settings = getSharedPreferences(PREFS_SETTINGS, MODE_PRIVATE);
         moveHintEnabled        = settings.getBoolean(KEY_MOVE_HINT, true);
         mustCaptureRuleEnabled = settings.getBoolean(KEY_MUST_CAPTURE, true);
+        soundEnabled           = settings.getBoolean(KEY_SOUND_ENABLED, true);
 
         String humanColor = settings.getString(KEY_HUMAN_COLOR, COLOR_WHITE);
 
@@ -185,17 +195,108 @@ public class GameActivity extends BaseActivity {
         }));
         btnRestart.setOnClickListener(withClickSound(v -> resetGame()));
         btnUndo.setOnClickListener(withClickSound(v -> handleUndoClick()));
-        btnSound.setOnClickListener(withClickSound(v ->
-                Toast.makeText(
-                        this,
-                        getString(R.string.game_sound_not_implemented),
-                        Toast.LENGTH_SHORT
-                ).show()
-        ));
+        btnSound.setOnClickListener(withClickSound(v -> toggleSound()));
 
         boardView.setOnCellClickListener(this::onCellClicked);
 
+        initBackgroundMusic();
+        updateSoundButtonIcon();
+
         startGame();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (bgMusicPlayer == null) {
+            initBackgroundMusic();
+        } else if (soundEnabled && !bgMusicPlayer.isPlaying()) {
+            bgMusicPlayer.start();
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (bgMusicPlayer != null && bgMusicPlayer.isPlaying()) {
+            bgMusicPlayer.pause();
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (bgMusicPlayer != null) {
+            bgMusicPlayer.release();
+            bgMusicPlayer = null;
+        }
+    }
+
+    // ------------------------------------------------------------------------
+    // ФОНОВАЯ МУЗЫКА И КНОПКА ЗВУКА
+    // ------------------------------------------------------------------------
+
+    private void initBackgroundMusic() {
+        if (bgMusicPlayer != null) {
+            return;
+        }
+        // game_bg_music.mp3 должен лежать в res/raw/
+        bgMusicPlayer = MediaPlayer.create(this, R.raw.game_bg_music);
+        if (bgMusicPlayer == null) {
+            return;
+        }
+        bgMusicPlayer.setLooping(true);
+        if (soundEnabled) {
+            bgMusicPlayer.start();
+        }
+    }
+
+    private void toggleSound() {
+        soundEnabled = !soundEnabled;
+
+        SharedPreferences settings = getSharedPreferences(PREFS_SETTINGS, MODE_PRIVATE);
+        settings.edit()
+                .putBoolean(KEY_SOUND_ENABLED, soundEnabled)
+                .apply();
+
+        applySoundStateToMusic();
+        updateSoundButtonIcon();
+    }
+
+    private void applySoundStateToMusic() {
+        if (bgMusicPlayer == null) {
+            return;
+        }
+        if (soundEnabled) {
+            if (!bgMusicPlayer.isPlaying()) {
+                bgMusicPlayer.start();
+            }
+        } else {
+            if (bgMusicPlayer.isPlaying()) {
+                bgMusicPlayer.pause();
+            }
+        }
+    }
+
+    private void updateSoundButtonIcon() {
+        if (btnSound == null) {
+            return;
+        }
+        int iconResId = soundEnabled
+                ? R.drawable.ic_sound_on
+                : R.drawable.ic_sound_off;
+        btnSound.setImageResource(iconResId);
+
+        // Не обязательно, но полезно для доступности
+        if (soundEnabled) {
+            btnSound.setContentDescription(
+                    getString(R.string.game_sound_on)
+            );
+        } else {
+            btnSound.setContentDescription(
+                    getString(R.string.game_sound_off)
+            );
+        }
     }
 
     // ------------------------------------------------------------------------

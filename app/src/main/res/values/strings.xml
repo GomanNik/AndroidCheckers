@@ -92,5 +92,8 @@
     <string name="game_must_capture_hint">Вы обязаны бить шашкой, которая может взять</string>
     <string name="game_no_undo_moves">Нет хода для отмены</string>
 
+    <string name="game_sound_on">Звук включён</string>
+    <string name="game_sound_off">Звук отключён</string>
+
 
 </resources>
