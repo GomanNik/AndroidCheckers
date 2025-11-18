@@ -29,6 +29,9 @@
     <string name="stats_played_zero">Сыграно: 0</string>
     <string name="stats_won_zero">Побед: 0</string>
     <string name="stats_lost_zero">Поражений: 0</string>
+    <string name="stats_played_format">Сыграно: %1$d</string>
+    <string name="stats_won_format">Побед: %1$d</string>
+    <string name="stats_lost_format">Поражений: %1$d</string>
 
     <!-- Настройки -->
     <string name="settings_title">Настройки</string>
@@ -41,7 +44,6 @@
     <string name="settings_yes">Да</string>
     <string name="settings_no">Нет</string>
 
-    <string name="settings_giveaway">Игра в поддавки</string> <!-- на будущее, можно не использовать -->
     <string name="settings_move_hint">Подсказка хода</string>
 
     <string name="settings_background_color">Цвет фона</string>
@@ -66,5 +68,29 @@
 
     <string name="game_level_label">Уровень:</string>
     <string name="game_level_format">Уровень: %1$s</string>
+
+    <!-- Победители для экрана окончания игры -->
+    <string name="game_winner_white">Белые</string>
+    <string name="game_winner_black">Чёрные</string>
+    <string name="score_format">%1$d : %2$d</string>
+
+    <string name="exit_question">Вы действительно хотите выйти из игры?</string>
+    <string name="exit_yes">Да, выйти</string>
+    <string name="exit_no">Нет, продолжить</string>
+    <string name="exit_close">Закрыть диалог</string>
+
+    <!-- Окно окончания игры -->
+    <string name="game_over_title">Игра окончена</string>
+    <string name="game_over_winner_format">Победитель: %1$s</string>
+    <!-- только для превью в layout, можно не использовать в коде -->
+    <string name="game_over_winner_example">Победитель: Белые</string>
+    <string name="game_over_restart">Играть ещё раз</string>
+    <string name="game_over_to_menu">В главное меню</string>
+
+    <!-- values/strings.xml (ru) -->
+    <string name="game_sound_not_implemented">Звук пока не реализован</string>
+    <string name="game_must_capture_hint">Вы обязаны бить шашкой, которая может взять</string>
+    <string name="game_no_undo_moves">Нет хода для отмены</string>
+
 
 </resources>

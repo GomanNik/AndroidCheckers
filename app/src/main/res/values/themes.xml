@@ -1,9 +1,19 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.Checkers" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Главная тема приложения -->
+    <style name="Theme.Checkers" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <!-- Базовые цвета (можно потом вынести в colors.xml) -->
+        <item name="colorPrimary">@android:color/black</item>
+        <item name="colorPrimaryDark">@android:color/black</item>
+        <item name="colorAccent">@android:color/white</item>
+
+        <!-- Фоновый рисунок для всех активити -->
+        <item name="android:windowBackground">@drawable/bg_premium_checkers</item>
+
+        <!-- Без системного action bar, т.к. у тебя свой UI -->
+        <item name="windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
     </style>
 
-    <style name="Theme.Checkers" parent="Base.Theme.Checkers" />
 </resources>

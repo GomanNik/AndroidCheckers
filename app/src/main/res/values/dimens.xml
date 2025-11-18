@@ -2,9 +2,9 @@
 <resources>
 
     <!-- Отступы на главном экране -->
-    <dimen name="main_toolbar_margin">16dp</dimen>
-    <dimen name="main_title_margin_top">92dp</dimen>
-    <dimen name="main_first_button_margin_top">8dp</dimen>
+    <dimen name="main_toolbar_margin">14dp</dimen>
+    <dimen name="main_title_margin_top">0dp</dimen>
+    <dimen name="main_first_button_margin_top">100dp</dimen>
     <dimen name="main_buttons_spacing">16dp</dimen>
 
     <!-- Размер шрифта заголовка -->
@@ -21,7 +21,7 @@
     <dimen name="game_score_margin_top">0dp</dimen>
     <dimen name="game_level_margin_top">4dp</dimen>
     <dimen name="game_turn_margin_top">4dp</dimen>
-    <dimen name="game_board_margin_horizontal">16dp</dimen>
+    <dimen name="game_board_margin_horizontal">5dp</dimen>
     <dimen name="game_board_margin_vertical">16dp</dimen>
 
 </resources>

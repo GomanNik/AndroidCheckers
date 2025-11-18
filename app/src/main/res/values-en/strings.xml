@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Checkers</string>
+
+    <!-- Main menu -->
+    <string name="menu_title">Checkers</string>
+    <string name="menu_exit">Exit</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_play">Play</string>
+    <string name="menu_rules">Rules</string>
+    <string name="menu_two_players">Two players</string>
+    <string name="menu_stats">Statistics</string>
+    <string name="menu_settings">Settings</string>
+
+    <!-- Level select -->
+    <string name="level_select_title">Select level</string>
+    <string name="level_easy">Easy</string>
+    <string name="level_medium">Medium</string>
+    <string name="level_hard">Hard</string>
+    <string name="level_expert">Expert</string>
+    <string name="level_grandmaster">Grandmaster</string>
+
+    <!-- Statistics -->
+    <string name="stats_easy_title">Easy level:</string>
+    <string name="stats_medium_title">Medium level:</string>
+    <string name="stats_hard_title">Hard level:</string>
+    <string name="stats_expert_title">Expert level:</string>
+    <string name="stats_grandmaster_title">Grandmaster level:</string>
+
+    <string name="stats_played_zero">Games played: 0</string>
+    <string name="stats_won_zero">Wins: 0</string>
+    <string name="stats_lost_zero">Losses: 0</string>
+    <string name="stats_played_format">Games played: %1$d</string>
+    <string name="stats_won_format">Wins: %1$d</string>
+    <string name="stats_lost_format">Losses: %1$d</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+
+    <string name="settings_play_as">Play as</string>
+    <string name="settings_play_white">White</string>
+    <string name="settings_play_black">Black</string>
+
+    <string name="settings_must_capture">Mandatory capture</string>
+    <string name="settings_yes">Yes</string>
+    <string name="settings_no">No</string>
+
+    <string name="settings_move_hint">Move hints</string>
+
+    <string name="settings_background_color">Background color</string>
+    <string name="settings_bg_light">Light</string>
+    <string name="settings_bg_dark">Dark</string>
+
+    <string name="settings_language">Language</string>
+    <string name="settings_lang_russian">Русский</string>
+    <string name="settings_lang_english">English</string>
+
+    <!-- Rules -->
+    <string name="rules_title">Game rules</string>
+
+    <!-- Game screen -->
+    <string name="game_score_label">Score</string>
+    <string name="game_restart">Restart</string>
+    <string name="game_undo">Undo move</string>
+    <string name="game_sound">Sound</string>
+
+    <string name="game_turn_white">Turn: White</string>
+    <string name="game_turn_black">Turn: Black</string>
+
+    <string name="game_level_label">Level:</string>
+    <string name="game_level_format">Level: %1$s</string>
+
+    <!-- Winners for end-of-game screen -->
+    <string name="game_winner_white">White</string>
+    <string name="game_winner_black">Black</string>
+    <string name="score_format">%1$d : %2$d</string>
+
+    <string name="exit_question">Do you really want to exit the game?</string>
+    <string name="exit_yes">Yes, exit</string>
+    <string name="exit_no">No, continue</string>
+    <string name="exit_close">Close dialog</string>
+
+    <!-- Game over dialog -->
+    <string name="game_over_title">Game over</string>
+    <string name="game_over_winner_format">Winner: %1$s</string>
+    <string name="game_over_winner_example">Winner: White</string>
+    <string name="game_over_restart">Play again</string>
+    <string name="game_over_to_menu">Main menu</string>
+
+    <!-- values-en/strings.xml (en) -->
+    <string name="game_sound_not_implemented">Sound is not implemented yet</string>
+    <string name="game_must_capture_hint">You must capture with a piece that can capture</string>
+    <string name="game_no_undo_moves">No move to undo</string>
+
+</resources>

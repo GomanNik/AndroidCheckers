@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Крупный счёт "0 : 0" -->
+    <style name="Text.GameScoreValue" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">36sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#E6EEFF</item>
+
+        <!-- СИЛЬНАЯ, ЧЁРНАЯ тень -->
+        <item name="android:shadowColor">#FF000000</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">4</item>
+        <item name="android:shadowRadius">6</item>
+    </style>
+
+    <!-- "Счёт" -->
+    <style name="Text.GameInfoLabel" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">#E6EEFF</item>
+
+        <item name="android:shadowColor">#E6000000</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">3</item>
+        <item name="android:shadowRadius">5</item>
+    </style>
+
+    <!-- "Уровень: …" -->
+    <style name="Text.GameInfoLabelSecondary" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">#E6EEFF</item>
+
+        <item name="android:shadowColor">#E6000000</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">3</item>
+        <item name="android:shadowRadius">5</item>
+    </style>
+
+    <!-- "Ход: Белые" -->
+    <style name="Text.GameTurn" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">26sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#E6EEFF</item>
+
+        <item name="android:shadowColor">#FF000000</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">4</item>
+        <item name="android:shadowRadius">6</item>
+    </style>
+
+    <!-- Кнопки-иконки (домой/рестарт/undo/звук) -->
+    <style name="GameIconButton" parent="@style/Widget.AppCompat.ImageButton">
+        <item name="android:layout_width">48dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:background">@drawable/bg_game_icon_button</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:scaleType">centerInside</item>
+        <item name="android:tint">#F5F7FF</item>
+        <item name="android:adjustViewBounds">true</item>
+    </style>
+
+    <!-- Кнопки настроек: чёрная глянцевая "пилюля" -->
+    <style name="SettingsButton" parent="@style/Widget.AppCompat.Button">
+        <item name="android:background">@drawable/bg_settings_button</item>
+        <item name="backgroundTint">@null</item>
+        <item name="android:backgroundTint">@null</item>
+
+        <item name="android:textColor">@color/settings_button_text_color</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">false</item>
+
+        <item name="android:shadowColor">#E6000000</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">2</item>
+        <item name="android:shadowRadius">4</item>
+
+        <item name="android:paddingLeft">18dp</item>
+        <item name="android:paddingRight">18dp</item>
+        <item name="android:paddingTop">6dp</item>
+        <item name="android:paddingBottom">6dp</item>
+        <item name="android:minHeight">48dp</item>
+    </style>
+
+    <!-- Кнопки главного меню: глянцевая "пилюля" с bg_main_button -->
+    <style name="MainButton" parent="@style/Widget.AppCompat.Button">
+        <!-- фон-кнопка -->
+        <item name="android:background">@drawable/bg_main_button</item>
+        <item name="backgroundTint">@null</item>
+        <item name="android:backgroundTint">@null</item>
+
+        <!-- текст -->
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">23sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textStyle">bold</item>
+
+        <!-- Центруем общий блок "иконка + текст" по ширине кнопки -->
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+
+        <!-- расстояние между текстом и иконкой -->
+        <item name="android:drawablePadding">20dp</item>
+
+        <!-- симметричные отступы слева/справа, чтобы текст не прилипал и не налезал на иконку -->
+        <item name="android:paddingStart">32dp</item>
+        <item name="android:paddingEnd">32dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+
+        <!-- размер "пилюли" -->
+        <item name="android:minHeight">75dp</item>
+        <item name="android:minWidth">260dp</item>
+    </style>
+
+    <!-- Заголовок "Шашки" в главном меню -->
+    <style name="Text.MainTitle" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/main_title_text_size</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#F5F7FF</item>
+
+        <item name="android:shadowColor">#99000000</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">3</item>
+        <item name="android:shadowRadius">6</item>
+
+        <item name="android:letterSpacing">0.06</item>
+    </style>
+
+    <!-- Кнопки выбора уровня: такие же, как меню, но без иконок и чуть уже -->
+    <style name="LevelButton" parent="@style/MainButton">
+        <!-- текст по центру, т.к. нет иконки справа -->
+        <item name="android:gravity">center</item>
+
+        <!-- немного меньше минимальная ширина, чем у MainButton (200dp) -->
+        <item name="android:minWidth">160dp</item>
+
+        <!-- можно чуть уменьшить вертикальные отступы, чтобы столбик смотрелся компактнее -->
+        <item name="android:paddingTop">6dp</item>
+        <item name="android:paddingBottom">6dp</item>
+    </style>
+
+    <style name="GameAlertDialog" parent="ThemeOverlay.AppCompat.Dialog.Alert">
+        <!-- Ширина окна: почти на всю ширину экрана -->
+        <item name="android:windowMinWidthMajor">90%</item>
+        <item name="android:windowMinWidthMinor">90%</item>
+
+        <!-- Прозрачный фон окна, чтобы не зарезать скругления -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+
+        <!-- Затемнение фона за диалогом -->
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.6</item>
+    </style>
+
+</resources>
