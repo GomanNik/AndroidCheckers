@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Checkers Rules</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        /* General background and basic typography */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                         "Helvetica Neue", Arial, sans-serif;
+            background: #101018;
+            color: #f5f5f5;
+        }
+
+        .page {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 16px 18px 32px;
+        }
+
+        h1, h2, h3 {
+            margin: 0;
+            font-weight: 600;
+        }
+
+        h1 {
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        h2 {
+            font-size: 18px;
+            margin-top: 20px;
+            margin-bottom: 8px;
+        }
+
+        h3 {
+            font-size: 16px;
+            margin-top: 14px;
+            margin-bottom: 4px;
+        }
+
+        p {
+            margin: 4px 0 8px;
+            line-height: 1.5;
+            font-size: 14px;
+        }
+
+        ul {
+            margin: 4px 0 10px;
+            padding-left: 18px;
+            font-size: 14px;
+        }
+
+        li {
+            margin-bottom: 4px;
+        }
+
+        /* Content card */
+        .card {
+            background: #181824;
+            border-radius: 14px;
+            padding: 14px 16px;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.55);
+            margin-bottom: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        /* Header block */
+        .header {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 13px;
+            color: #b0b0c8;
+        }
+
+        /* Tag */
+        .tag {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 999px;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 6px;
+            background: linear-gradient(135deg, #7e57ff, #c792ff);
+            color: #fff;
+        }
+
+        /* Two-column layout */
+        .cols {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr);
+            gap: 10px;
+        }
+
+        @media (min-width: 640px) {
+            .cols {
+                grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            }
+        }
+
+        /* Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 6px 0 10px;
+            font-size: 13px;
+        }
+
+        th, td {
+            padding: 6px 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        th {
+            text-align: left;
+            color: #c0c0d8;
+            font-weight: 500;
+        }
+
+        .note {
+            font-size: 12px;
+            color: #aaaacc;
+        }
+
+        .accent {
+            color: #ffcc66;
+            font-weight: 500;
+        }
+
+        .bullet-title {
+            font-weight: 500;
+        }
+
+        .divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, #444466, transparent);
+            margin: 16px 0;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <div class="header">
+        <div class="tag">Guide</div>
+        <h1>Checkers Rules</h1>
+        <div class="subtitle">
+            A short overview of classic rules. The game uses an 8×8 board and diagonal movement.
+        </div>
+    </div>
+
+    <!-- Goal & starting position -->
+    <div class="card">
+        <h2>Goal of the Game</h2>
+        <p>
+            Win the game by capturing all opponent’s pieces
+            or by leaving them with no legal moves.
+        </p>
+
+        <div class="divider"></div>
+
+        <h2>Starting Position</h2>
+        <ul>
+            <li>The game is played on an <span class="accent">8×8</span> board using dark squares.</li>
+            <li>Each player has 12 pieces.</li>
+            <li>Pieces are placed on the dark squares of the first three rows on each side.</li>
+            <li>The player with the white pieces always makes the first move.</li>
+        </ul>
+    </div>
+
+    <!-- Movement & capturing -->
+    <div class="card">
+        <div class="cols">
+            <div>
+                <h2>Movement of a Man</h2>
+                <ul>
+                    <li>A man moves one square forward diagonally.</li>
+                    <li>Moving onto an occupied square is not allowed.</li>
+                    <li>A man cannot move backward until it becomes a king.</li>
+                </ul>
+
+                <h2>The King</h2>
+                <ul>
+                    <li>A man reaching the opponent’s last row becomes a <span class="accent">king</span>.</li>
+                    <li>A king moves diagonally forward or backward any number of free squares.</li>
+                    <li>A king captures by jumping over an opponent’s piece diagonally as well.</li>
+                </ul>
+            </div>
+
+            <div>
+                <h2>Capturing</h2>
+                <p class="bullet-title">General capture rules:</p>
+                <ul>
+                    <li>A capture is made by jumping over an opponent’s piece onto the free square behind it.</li>
+                    <li>The jumped piece is removed from the board.</li>
+                    <li>If another capture is possible with the same piece, the player must continue the capturing sequence.</li>
+                </ul>
+
+                <p class="bullet-title">Mandatory capture rule:</p>
+                <ul>
+                    <li>If a capture is available, a player must perform it.</li>
+                    <li>If multiple capture sequences exist, the player may choose any of them.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- End of game -->
+    <div class="card">
+        <h2>End of the Game</h2>
+        <ul>
+            <li><span class="bullet-title">Win</span> — the opponent has no pieces left or has no legal moves.</li>
+            <li><span class="bullet-title">Loss</span> — your pieces are gone or you cannot move.</li>
+            <li><span class="bullet-title">Draw</span> may occur:
+                <ul>
+                    <li>by mutual agreement;</li>
+                    <li>if no captures or progress happen for a long time;</li>
+                    <li>if the same position repeats several times.</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- App-specific settings -->
+    <div class="card">
+        <h2>App Features</h2>
+
+        <h3>Modes and Settings</h3>
+        <ul>
+            <li><span class="bullet-title">Mandatory capture</span> —
+                if enabled, you must capture whenever possible.</li>
+
+            <li><span class="bullet-title">Move hints</span> —
+                when selecting a piece, all legal moves are highlighted.</li>
+
+            <li><span class="bullet-title">Background theme</span> —
+                switch between light and dark themes for the board and menus.</li>
+
+            <li><span class="bullet-title">Play as</span> —
+                choose to play as white or black.</li>
+
+            <li><span class="bullet-title">Language</span> —
+                switch between interface languages (for example, Russian / English).</li>
+        </ul>
+
+        <div class="divider"></div>
+
+        <h3>Difficulty Levels</h3>
+        <table>
+            <tr>
+                <th>Level</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>Easy</td>
+                <td>Simple AI moves, good for beginners.</td>
+            </tr>
+            <tr>
+                <td>Medium</td>
+                <td>More careful play, AI considers basic combinations.</td>
+            </tr>
+            <tr>
+                <td>Hard</td>
+                <td>AI looks deeper and may use sacrifices.</td>
+            </tr>
+            <tr>
+                <td>Expert</td>
+                <td>Requires precise play; mistakes are punished quickly.</td>
+            </tr>
+            <tr>
+                <td>Grandmaster</td>
+                <td>Maximum difficulty for experienced players.</td>
+            </tr>
+        </table>
+
+        <p class="note">
+            Note: actual AI behavior depends on the implemented algorithm
+            and may differ from the classical descriptions.
+        </p>
+    </div>
+
+    <p class="note">
+        These rules serve as a quick reminder.
+        In disputable cases, follow the official Russian Checkers rules
+        or agreements made before the game.
+    </p>
+
+</div>
+</body>
+</html>
